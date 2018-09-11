@@ -1,0 +1,182 @@
+.type-tool {
+  width: 1200px;
+  margin: 30px auto;
+  padding: 25px 30px;
+}
+.type-tool > h3 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+}
+.type-tool > p {
+  text-align: center;
+}
+.type-tool .select-box li {
+  cursor: pointer;
+  list-style: none;
+  float: left;
+  height: 165px;
+  border: 1px solid #cdd9e0;
+  border-radius: 12px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.12);
+  width: calc((100% - 90px)/4);
+  margin-top: 25px;
+  background: url(../images/type-option-selected.png) no-repeat center 24px;
+}
+.type-tool .select-box li:not(:nth-child(4)):not(:last-child) {
+  margin-right: 30px;
+}
+.type-tool .select-box li img {
+  height: 72px;
+  display: block;
+  margin: 14px auto 0;
+}
+.type-tool .select-box li > p {
+  margin: 5px 22px;
+  text-align: center;
+}
+.type-tool .select-box li.selected {
+  border: 2px solid #8cc63e;
+}
+.type-tool .select-box li.selected img {
+  visibility: hidden;
+}
+.type-tool .suggest-box {
+  margin-top: 45px;
+  border-top: 8px solid #383a5d;
+  border-bottom: 8px solid #383a5d;
+}
+.type-tool .suggest-box ul {
+  height: 620px;
+}
+.type-tool .suggest-box li {
+  position: relative;
+  z-index: 2;
+  background-color: #fff;
+  float: left;
+  list-style: none;
+  width: calc((100% - 30px)/4);
+  height: 620px;
+  padding: 0 50px 0 20px;
+}
+.type-tool .suggest-box li:not(:last-child) {
+  margin-right: 10px;
+}
+.type-tool .suggest-box li .li-masker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.6);
+  display: none;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+}
+.type-tool .suggest-box li .recommended {
+  color: #78a12e;
+  font-weight: 600;
+  margin-top: 8px;
+  display: none;
+}
+.type-tool .suggest-box li .with {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #8cc63e;
+  font-size: 24px;
+  color: #fff;
+  font-weight: 600;
+  position: absolute;
+  top: -29px;
+  right: -30px;
+  text-align: center;
+  line-height: 50px;
+  z-index: 10;
+  display: none;
+}
+.type-tool .suggest-box li:nth-child(3) .with {
+  right: unset;
+  left: -30px;
+}
+.type-tool .suggest-box li.suggested {
+  box-shadow: 0 15px 25px 0 rgba(0, 0, 0, 0.24);
+  border-top: 8px solid #8cc63e;
+  margin-top: -36px;
+  height: 690px;
+}
+.type-tool .suggest-box li.suggested .recommended,
+.type-tool .suggest-box li.suggested .with {
+  display: block;
+}
+.type-tool .suggest-box li.unsuggested .li-masker {
+  display: block;
+}
+.type-tool .suggest-box li:first-child > h4 {
+  background: url(../images/ma.png) no-repeat left center;
+}
+.type-tool .suggest-box li:first-child .plan-cover p:first-child {
+  background: url(../images/rx-drug.png) no-repeat left 2px;
+}
+.type-tool .suggest-box li:first-child .plan-cover p:nth-child(2) {
+  background: url(../images/out-of-pocket.png) no-repeat left 2px;
+}
+.type-tool .suggest-box li:first-child .plan-cover p:nth-child(3) {
+  background: url(../images/premium.png) no-repeat left 2px;
+}
+.type-tool .suggest-box li:first-child .plan-cover p:last-child {
+  background: url(../images/dental-insurance.png) no-repeat left 2px;
+}
+.type-tool .suggest-box li:nth-child(2) > h4 {
+  background: url(../images/medigap.png) no-repeat left center;
+}
+.type-tool .suggest-box li:nth-child(2) .plan-cover p:first-child {
+  background: url(../images/doctor.png) no-repeat left 2px;
+}
+.type-tool .suggest-box li:nth-child(2) .plan-cover p:nth-child(2) {
+  background: url(../images/doctor-briefcase.png) no-repeat left 2px;
+}
+.type-tool .suggest-box li:nth-child(2) .plan-cover p:nth-child(3) {
+  background: url(../images/hospitalization.png) no-repeat left 2px;
+}
+.type-tool .suggest-box li:nth-child(2) .plan-cover p:last-child {
+  background: url(../images/deductible.png) no-repeat left 2px;
+}
+.type-tool .suggest-box li:nth-child(3) > h4 {
+  background: url(../images/rx.png) no-repeat left center;
+}
+.type-tool .suggest-box li:nth-child(3) .plan-cover p:first-child {
+  background: url(../images/rx-drug.png) no-repeat left 2px;
+}
+.type-tool .suggest-box li:nth-child(3) .plan-cover p:last-child {
+  background: url(../images/premium.png) no-repeat left 2px;
+}
+.type-tool .suggest-box li:last-child > h4 {
+  padding-left: 85px;
+  background: url(../images/talk-agent.png) no-repeat left center;
+}
+.type-tool .suggest-box li > h4 {
+  padding-left: 75px;
+  font-weight: 600;
+  font-size: 18px;
+  height: 90px;
+  line-height: 1.3;
+  margin-top: 30px;
+}
+.type-tool .suggest-box li button {
+  margin-top: 30px;
+}
+.type-tool .suggest-box li .plan-info {
+  margin-top: 30px;
+  line-height: 1.6;
+}
+.type-tool .suggest-box li .plan-info p {
+  font-size: 20px;
+}
+.type-tool .suggest-box li .plan-cover {
+  margin-top: 24px;
+}
+.type-tool .suggest-box li .plan-cover P {
+  padding-left: 33px;
+  margin-bottom: 24px;
+  min-height: 30px;
+}

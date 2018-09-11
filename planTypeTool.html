@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Plan Type Tool</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/plan-type-tool.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="type-tool">
+        <h3>Find a plan type that works for you</h3>
+        <p>Select all that applies to you</p>
+        <div class="select-box">
+            <ul class="clear">
+                <li data-weight='1'>
+                    <img src="images/type-option-1.svg" alt="">
+                    <p>
+                        I prefer pay more up-front in monthly premium for peace of mind later
+                    </p>
+                </li>
+                <li data-weight='1'>
+                    <img src="images/type-option-2.svg" alt="">
+                    <p>
+                        I would like ability to see doctors across states
+                    </p>
+                </li>
+                <li data-weight='1'>
+                    <img src="images/type-option-3.svg" alt="">
+                    <p>
+                        I prefer plan benefits that remains same over years and guranteed renewable
+                    </p>
+                </li>
+                <li data-weight='-1'>
+                    <img src="images/type-option-4.svg" alt="">
+                    <p>
+                        I have Medicaid or extra help
+                    </p>
+                </li>
+                <li data-weight='-1'>
+                    <img src="images/type-option-5.svg" alt="">
+                    <p>
+                        I prefer to pay as they go, with lower monthly premiums
+                    </p>
+                </li>
+                <li data-weight='-1'>
+                    <img src="images/type-option-6.svg" alt="">
+                    <p>
+                        I’m ok to have a doctor network for lower health plan costs
+                    </p>
+                </li>
+                <li data-weight='0'>
+                    <img src="images/type-option-7.svg" alt="">
+                    <p>
+                        I prefer all-in-one plan that covers Rx drugs, dental, vision…etc.
+                    </p>
+                <li data-weight='0'>
+                    <img src="images/type-option-8.svg" alt="">
+                    <p>
+                        I have chronical illness, upcoming procedures or surgery scheduled
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <div class="suggest-box">
+            <ul>
+                <li>
+                    <div class="recommended">Recommended for you</div>
+                    <div class="li-masker"></div>
+                    <h4>Medicare Advantage <br/>(Part C)</h4>
+                    <button class="btn btn-primary" type="button">View All 20 Plans</button>
+                    <div class="plan-info">
+                        An affordable alternative of original Medicare. Most plans come with drug coverage.
+                    </div>
+                    <div class="plan-cover">
+                        <p>Most plan also cover prescription drugs</p>
+                        <p>Limited annual out-of-pocket costs</p>
+                        <p>Affordable monthly premiums</p>
+                        <p>May provide dental or vision coverage</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="with">&</div>
+                    <div class="li-masker"></div>
+                    <h4>Medicare Supplement Insurance <br/>(Medigap)</h4>
+                    <button class="btn btn-primary" type="button">View All 20 Plans</button>
+                    <div class="plan-info">
+                            Medicare Supplement Insurance works with original Medicare to cover the out of pocket expenses original Medicare doesn’t cover.
+                    </div>
+                    <div class="plan-cover">
+                        <p>See any providers</p>
+                        <p>Cover 100% medical expenses</p>
+                        <p>Cover 365 more days of hospitalization</p>
+                        <p>Cover Medicare part A/B dedcutibles</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="with">&</div>
+                    <div class="li-masker"></div>
+                    <h4>Prescription Drug Plan <br/>(Part D)</h4>
+                    <button class="btn btn-primary" type="button">View All 20 Plans</button>
+                    <div class="plan-info">
+                            A stand alone prescription drug plans, often works with original Medicare and Medicare Supplement Insurance plans.
+                    </div>
+                    <div class="plan-cover">
+                        <p>Cover prescription drugs</p>
+                        <p>Affordable monthly premiums</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="li-masker"></div>
+                    <h4>Talk to a licensed insurance agent</h4>
+                    <div class="plan-info">
+                        Our licencesed insurance agents helped more than 3 million customers find plans works for them
+                    </div>
+                    <div class="plan-info">
+                        Call us at 
+                        <p>1-888-296-0117</p>
+                        <p>TTY users 711</p>
+                        Mon - Fri, 8am - 8pm ET
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        $('.select-box').on('click','li',function(){
+            $(this).toggleClass('selected');
+
+            if($('.select-box li.selected').length == 0){
+                $('.suggest-box li.suggested').removeClass('suggested');
+                $('.suggest-box li.unsuggested').removeClass('unsuggested');
+                return;
+            }
+            var result = 0;
+            for(var i=0;i<$('.select-box li.selected').length;i++){
+                result+=parseInt($('.select-box li.selected')[i].getAttribute("data-weight"));
+            };
+            if(result > 0){
+                $('.suggest-box li:first-child').removeClass('unsuggested').addClass('suggested').siblings("li").removeClass('suggested').addClass('unsuggested');
+            }else  if(result < 0) {
+                $('.suggest-box li:first-child').removeClass('suggested').addClass('unsuggested');
+                $('.suggest-box li:last-child').removeClass('suggested').addClass('unsuggested');
+                $('.suggest-box li:nth-child(2)').removeClass('unsuggested').addClass('suggested');
+                $('.suggest-box li:nth-child(3)').removeClass('unsuggested').addClass('suggested');
+            }else {
+                $('.suggest-box li:last-child').removeClass('unsuggested').addClass('suggested').siblings("li").removeClass('suggested').addClass('unsuggested');
+            }
+            console.log(result);
+        })
+    </script>
+</body>
+
+</html>
